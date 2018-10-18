@@ -1,7 +1,7 @@
-var name = prompt ("hello");
+var name = prompt ("What's your name?");
 if (name==="akas"){
-alert("you are a member of AAIA");
+alert("Welcome! You are a member of AAIA");
 }
 else{
-alert("you are not a member of AAIA");
+alert("You are not a member of AAIA");
 }
