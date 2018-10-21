@@ -1,0 +1,21 @@
+button {
+	align-items: left;
+	height: 40px;
+}
+
+h3 {
+  display: inline-block;
+  margin: 0;
+}
+p {
+	 display: inline-flex;
+	 flex-wrap: wrap;
+	 justify-content: flex-end;
+}
+h1 {
+	width: 150px;
+	border-bottom: 5px solid grey;
+	text-align: center;
+	box-shadow: 4px 5px 5px grey;
+	margin-left: -10px;
+}
