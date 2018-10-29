@@ -11,10 +11,11 @@ document.write(
 }
 
 // Action for JS Practice
+// AAIA Member validator
 function js1a(){
 function greeting(){document.write("<h1 style='text-align:center'>Thanks for using our person validator</h1>")}
 var name = prompt ("What's your name?");
-if (name==="akas"||name==="apon"||name==="imon"||name==="asik"||name==="Akas"||name==="Apon"||name==="Imon"||name==="Asik"){
+if (name ==="akas"||name==="apon"||name==="imon"||name==="asik"||name==="Akas"||name==="Apon"||name==="Imon"||name==="Asik"){
 alert("Welcome! " +name+" You are a member of AAIA");
 greeting()
 }else{
@@ -35,34 +36,43 @@ if (user==="apon" & pass === "123456"){
 	alert("Thanks for Login");
 }else{alert("Wrong Username and Password");}
 }
-// Facebook 2
-function js4a(){
-	var userlist = [{username: "apon", password: "123456"}, {username: "akas", password: "12345"}, {username: "asik", password: "1234"}];
 
-function js4a(username, password){
-if (username===userlist[0].username & password === userlist[0].password){
-alert("Thanks for Login");}
-else {alert("Wrong Username and Password");}}
+// Facebook
+function js4a(){
+
+	var userlist = [
+	{username: "apon", password: "123"}, 
+	{username: "akas", password: "1234"}, 
+	{username: "asik", password: "12345"}
+	];
+
+function ValidUser(username, password){
+for (var i=0; i < userlist.length; i++){
+if (username===userlist[i].username & password === userlist[i].password){
+return true;}}
+return false;}
+function check(username, password){
+if (ValidUser(username, password)){
+alert("Thanks for Login");
+} else {alert("Wrong Username and Password");}
+}
 
 var userp = prompt("Username:");
 var passp = prompt("Password:");
-js4a (userp, passp);
-// var userlist = [{Username: "apon", Password: "123456"}, {Username: "akas", Password: "12345"}, {Username: "asik", Password: "1234"}];
-// var user = prompt("Username:");
-// var pass = prompt("Password:");
-// 								function check(){
-// 								for (var i=0; i < userlist.length; i++){ 
-// 									if (user===userlist[i].Username & pass === userlist[i].Password){
-// 									return true;
-// 								} else{return false;}
-// 							}
-// 						}
-// 						console.log(check());
+check (userp, passp);
+}
 
-}
-function js5a(){
-nAvailable()
-}
+// function js5a(){
+// var css = document.querySelector("h3");
+// var color1 = document.querySelector("#color1");
+// var color2 = document.querySelector("#color2");
+// var body = document.querySelector("body");
+
+// color1.addEventListener("input", function(){
+// 	console.log(color1.value);
+// })
+// }
+
 function js6a(){
 nAvailable()
 }
