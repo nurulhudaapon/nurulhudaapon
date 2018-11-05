@@ -40,7 +40,7 @@ if (user==="apon" & pass === "123456"){
 // Facebook
 function js4a(){
 
-	var userlist = [
+	let userlist = [
 	{username: "apon", password: "123"}, 
 	{username: "akas", password: "1234"}, 
 	{username: "asik", password: "12345"}
