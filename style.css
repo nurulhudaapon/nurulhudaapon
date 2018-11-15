@@ -8,9 +8,7 @@ h3 {
   margin: 0;
 }
 p {
-	 display: inline-flex;
-	 flex-wrap: wrap;
-	 justify-content: flex-end;
+	 display: inline-block;
 }
 h1 {
 	width: 150px;
@@ -18,4 +16,7 @@ h1 {
 	text-align: center;
 	box-shadow: 4px 5px 5px grey;
 	margin-left: -10px;
+}
+button {
+	width: 150px;
 }
