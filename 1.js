@@ -3,7 +3,6 @@ var js2 = document.getElementById("js-2");
 var js3 = document.getElementById("js-3");
 var js4 = document.getElementById("js-4");
 var js5 = document.getElementById("js-5");
-var js6 = document.getElementById("js-6");
 
 function nAvailable(){
 document.write(
@@ -62,24 +61,8 @@ var passp = prompt("Password:");
 check (userp, passp);
 }
 
-// function js5a(){
-// var css = document.querySelector("h3");
-// var color1 = document.querySelector("#color1");
-// var color2 = document.querySelector("#color2");
-// var body = document.querySelector("body");
-
-// color1.addEventListener("input", function(){
-// 	console.log(color1.value);
-// })
-// }
-
-function js6a(){
-nAvailable()
-}
 // Event Listener
 js1.addEventListener("click", js1a)
 js2.addEventListener("click", js2a)
 js3.addEventListener("click", js3a)
 js4.addEventListener("click", js4a)
-js5.addEventListener("click", js5a)
-js6.addEventListener("click", js6a)
