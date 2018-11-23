@@ -1,9 +1,82 @@
 .i {
 	display: inline-block;
 }
+.u {
+	margin-left: -37px;
+}
+
 .center {
 	float: center;
+	align-text: center;
+	text-align: center;
+
 }
 .box {
+
 	 width: 70%;
+}
+.container {
+
+	background: lightgrey;
+	border-radius: 10px;
+}
+.resetButton {
+	width: 20%;
+}
+.submitButton {
+	width: 60%;
+}
+.button {
+
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 9px #999;
+    
+    border-radius: 5px;
+}
+.resetButton {
+	background-color: black;
+	padding: auto;
+}
+.button:hover {
+    background-color: red; /* Green */
+    color: white;
+}
+.button:active {
+  background-color: red;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.if {
+	height: 60px;
+	width: 90px;
+	text-align: center;
+}
+.heightInFeet, .heightInInch  {
+	width: 90px;
+}
+.heightInInch {
+	margin-left: 25px;
+}
+
+.resultContainer {
+	background-color: floralwhite;
+	display: none;
+}
+
+.left {
+	text-align: left;
+}
+.dm {
+	margin-top: -0px;
+}
+.red {
+	color: red;
+
 }

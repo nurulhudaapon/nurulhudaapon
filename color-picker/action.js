@@ -8,7 +8,7 @@ let output = document.querySelector(".color-container");
 
 function d(){
 output.style.background = 
-"rgba("+input1.value+"," +input2.value+"," +input3.value+"," +input4.value+"%)"
+`rgba(${input1.value}, ${input2.value}, ${input3.value}, ${input4.value}%)`
 }
 
 input1.addEventListener("input", d)

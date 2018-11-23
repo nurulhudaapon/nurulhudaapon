@@ -1,10 +1,11 @@
 // Crating Variables
-let height = document.querySelector(".height");
+let heightInFeet = document.querySelector(".heightInFeet");
+let heightInInch = document.querySelector(".heightInInch");
 let weight = document.querySelector(".weight");
 let age = document.querySelector(".age");
 let mgender = document.querySelector(".mgender");
 let fgender = document.querySelector(".fgender");
-
+let result = document.querySelector(".resultContainer");
 
 
 let submitButton = document.querySelector(".submitButton");
@@ -20,7 +21,9 @@ let nweightDisplay = document.querySelector(".nweight");
 // Calculating BMI & BMR
 // Calculating BMI
 const convert = () => {
-let heightInMetre= (height.value/39.37);
+result.style.display = "block";
+let height = ((heightInFeet.value * 12) + (heightInInch.value*1))
+let heightInMetre= (height/39.37);
 let heightInCm= (heightInMetre*100);
 let bmi = weight.value/(heightInMetre*heightInMetre);
 let hnweight = Number.parseFloat(24.9 * (heightInMetre*heightInMetre)).toFixed(2);
@@ -45,20 +48,20 @@ if (fgender.checked && age.value != ""){
 	bmrDisplay.innerHTML = bmrf;
 } 
 else if (mgender.checked && age.value != "") {bmrDisplay.innerHTML = bmrm;}
-else {bmrDisplay.innerHTML = "Please choose your gender and input age.";}
+else {bmrDisplay.innerHTML = '<p class = "red">&nbsp;Choose gender first.</p>';}
 
 }
 
-// Resting fields
-const reset = () => {
-	height.value = "";
-	weight.value = "";
-	age.value = "";
-	mgender.checked = false;
-	fgender.checked = false;
+// // Resting fields
+// const reset = () => {
+// 	height.value = "";
+// 	weight.value = "";
+// 	age.value = "";
+// 	mgender.checked = false;
+// 	fgender.checked = false;
 
 
-}
-resetButton.addEventListener("click", reset)
+// }
+// resetButton.addEventListener("click", reset)
 submitButton.addEventListener("click", convert)
 

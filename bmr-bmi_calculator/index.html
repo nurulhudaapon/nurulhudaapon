@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 
@@ -11,32 +13,57 @@
 
 </head>
 <body>
-	<h1>BMR-BMI Calculator</h1><hr>
-	<div class="center box">
-		<input class="height" type="number" placeholder="Height in Inch" name="">
-		<br><br>
-		<input class="weight" type="number" placeholder="Weight in KG" name="" >
-		<br><br>
-		<input class="age" type="number" placeholder="Your age" name="">
+	<div class="center container">
+		<h1>BMR-BMI <br>Calculator</h1><hr>
+	<div class="center">
+		<h4>Height</h4>
+		<input class="heightInFeet if" type="number" value="5"><p class="u i"> ft</p>
+		<input class="heightInInch if" type="number" value="5"><p class="u i"> inch</p>
+		<h4>Weight</h4>
+		<input class="weight if" type="number" value="60"><p class="u i"> KG</p>
+		<h4>Age</h4>
+		<input class="age if" type="number" value="25"><p class="u i"> Yr</p>
 
 		<br>
 		<input class="fgender i"  type="radio" name="gender" value="female"><p class="i">Female</p>
 		<input class="mgender i"  type="radio" name="gender" value="male"><p class="i">Male</p>
 		<br><br>
-		<input class="resetButton" type="reset" name="" value="Reset">
-		<input class="submitButton" type="button" name="" value="Measure">
+		<!-- <input class="resetButton button" type="reset" name="" value="Reset"> -->
+		<input class="submitButton button" type="button" name="" value="Measure">
+		<br>
+		<br>
+		<br>
 
-
-
-
-<br>
+		<div class="resultContainer">
 		<p class="i">Your BMI:&nbsp;<h4 class="bmi i">&nbsp;Input your height and weight first.</h4></p>
-		<p class="i">Your BMR:&nbsp;<h4 class="bmr i">&nbsp;Input your height, weight, age and choose gender first.</h4></p>
+
+		<p class="i">Your BMR:&nbsp;<h4 class="bmr i">	<p class = "red">&nbsp;Input your height, weight, age and choose gender first.</p></h4></p>
+
 		<p class="i">Your Status:&nbsp;<h4 class="status i">&nbsp;Input your height and weight first.</h4></p>
-		<p class="i">Your Weight Should Be:&nbsp;<h4 class="nweight i">&nbsp;Input your height first.</h4></p>
+		<p class="i">Your Weight Should Be:&nbsp;<h4 class="nweight i">&nbsp;Input your height first.</h4></p> 
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	</div>
+	<hr>
+	<p class="left i dm"><strong>Developed By Nurul Huda</strong></p>
+
+	</div>
+	
 
 
 
