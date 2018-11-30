@@ -1,10 +1,4 @@
-// Crating Variables
-let heightInFeet = document.querySelector(".heightInFeet");
-let heightInInch = document.querySelector(".heightInInch");
-let weight = document.querySelector(".weight");
-let age = document.querySelector(".age");
-let mgender = document.querySelector(".mgender");
-let fgender = document.querySelector(".fgender");
+
 let result = document.querySelector(".resultContainer");
 
 
@@ -21,11 +15,30 @@ let nweightDisplay = document.querySelector(".nweight");
 // Calculating BMI & BMR
 // Calculating BMI
 const convert = () => {
+
+
+// Crating Variables
+let heightInFeet = Number(document.querySelector(".heightInFeet").value);
+let heightInInch = Number(document.querySelector(".heightInInch").value);
+let weight = Number(document.querySelector(".weight").value);
+let age = Number(document.querySelector(".age").value);
+let mgender = document.querySelector(".mgender");
+let fgender = document.querySelector(".fgender");
+
+
+
+
+
+
+
+
+
+	
 result.style.display = "block";
-let height = ((heightInFeet.value * 12) + (heightInInch.value*1))
+let height = ((heightInFeet * 12) + (heightInInch));
 let heightInMetre= (height/39.37);
 let heightInCm= (heightInMetre*100);
-let bmi = weight.value/(heightInMetre*heightInMetre);
+let bmi = weight/(heightInMetre*heightInMetre);
 let hnweight = Number.parseFloat(24.9 * (heightInMetre*heightInMetre)).toFixed(2);
 let lnweight = Number.parseFloat(18.5 * (heightInMetre*heightInMetre)).toFixed(2);
 
@@ -38,16 +51,16 @@ else if (bmi <= 39.9){statusDisplay.innerHTML = "Class II obesity";}
 else if (bmi >= 40){statusDisplay.innerHTML = "Class III obesity";}
 
 // Calculating BMR
-let bmrm = (66+(13.7*weight.value)+(5*heightInCm)-(6.8*age.value));
-let bmrf = (665+(9.6*weight.value)+(1.8*heightInCm)-(4.7*age.value));
+let bmrm = (66+(13.7*weight)+(5*heightInCm)-(6.8*age));
+let bmrf = (665+(9.6*weight)+(1.8*heightInCm)-(4.7*age));
 
 bmiDisplay.innerHTML = bmi;
 nweightDisplay.innerHTML = `${lnweight} KG to ${hnweight} KG`;
 
-if (fgender.checked && age.value != ""){
+if (fgender.checked && age != ""){
 	bmrDisplay.innerHTML = bmrf;
 } 
-else if (mgender.checked && age.value != "") {bmrDisplay.innerHTML = bmrm;}
+else if (mgender.checked && age!= "") {bmrDisplay.innerHTML = bmrm;}
 else {bmrDisplay.innerHTML = '<p class = "red">&nbsp;Choose gender first.</p>';}
 
 }
@@ -63,5 +76,5 @@ else {bmrDisplay.innerHTML = '<p class = "red">&nbsp;Choose gender first.</p>';}
 
 // }
 // resetButton.addEventListener("click", reset)
-submitButton.addEventListener("click", convert)
+submitButton.addEventListener("click", run)
 
