@@ -14,7 +14,7 @@ let nweightDisplay = document.querySelector(".nweight");
 
 // Calculating BMI & BMR
 // Calculating BMI
-const convert = () => {
+const run = () => {
 
 
 // Crating Variables
