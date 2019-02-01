@@ -14,4 +14,5 @@ function fadeOutEffect() {
             clearInterval(fadeEffect);
         }
     }, 70);
+    loaded();
 }
