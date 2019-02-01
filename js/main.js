@@ -1,10 +1,8 @@
-const loaded = () => {
-    document.querySelector('.preloader').style.display = "none";
-};
 
-function fadeOutEffect() {
-    var fadeTarget = document.getElementById("target");
-    var fadeEffect = setInterval(function () {
+const fadeOutEffect = () => {
+    const loaded = () => {document.querySelector('#target').style.display = "none";};
+    const fadeTarget = document.querySelector('#target');
+    const fadeEffect = setInterval(function () {
         if (!fadeTarget.style.opacity) {
             fadeTarget.style.opacity = 1;
         }
@@ -12,7 +10,7 @@ function fadeOutEffect() {
             fadeTarget.style.opacity -= 0.1;
         } else {
             clearInterval(fadeEffect);
+            loaded();
         }
-    }, 70);
-    loaded();
-}
+    }, 60);
+};

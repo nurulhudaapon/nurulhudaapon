@@ -11,14 +11,14 @@
 } */
 
 
-.preloader {
+#target {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background-image: url('../res/loader.gif');
+  background-image: url('../res/loader.svg');
   background-repeat: no-repeat; 
   background-color: #FFF;
   background-position: center;
