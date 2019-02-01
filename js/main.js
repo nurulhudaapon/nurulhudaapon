@@ -1,7 +1,7 @@
 
 const fadeOutEffect = (fadeTime) => {
     let target = document.querySelector('#loader');
-    let loaded = () => {target.style.display = "none";};
+    let loaded = () => {target.style.display = "none"};
     
     let fadeEffect = setInterval(function () {
         if (!target.style.opacity) {
@@ -15,3 +15,4 @@ const fadeOutEffect = (fadeTime) => {
         }
     }, fadeTime);
 };
+document.querySelector('body').onload = fadeOutEffect(20);
