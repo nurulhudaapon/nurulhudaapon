@@ -1,16 +1,17 @@
 
-const fadeOutEffect = () => {
-    const loaded = () => {document.querySelector('#target').style.display = "none";};
-    const fadeTarget = document.querySelector('#target');
-    const fadeEffect = setInterval(function () {
-        if (!fadeTarget.style.opacity) {
-            fadeTarget.style.opacity = 1;
+const fadeOutEffect = (fadeTime) => {
+    let target = document.querySelector('#loader');
+    let loaded = () => {target.style.display = "none";};
+    
+    let fadeEffect = setInterval(function () {
+        if (!target.style.opacity) {
+            target.style.opacity = 1;
         }
-        if (fadeTarget.style.opacity > 0) {
-            fadeTarget.style.opacity -= 0.1;
+        if (target.style.opacity > 0) {
+            target.style.opacity -= 0.1;
         } else {
             clearInterval(fadeEffect);
             loaded();
         }
-    }, 60);
+    }, fadeTime);
 };
