@@ -1,0 +1,117 @@
+/* .no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(images/loader-64x/Preloader_2.gif) center no-repeat #fff;
+} */
+
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-image: url('../res/loader.svg');
+  background-repeat: no-repeat; 
+  background-color: #FFF;
+  background-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.center {
+  text-align: center;
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+.typewriter {
+    width: 570px;
+    text-align: center;
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(26, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+
+p {
+	margin-top: 10px;
+
+}
+#nav a{
+
+  width: 18%;
+  margin-right: 3px;
+  margin-left: 3px;
+
+}
+
+.home #home, .resume #resume, .contacts #contacts, .practices #practices {
+	    background: limegreen;
+}
+footer a {
+	text-decoration: none;
+}
+.no-margin {
+	margin: 0px;
+}
+#nav {
+	position: sticky-top;
+
+html,body,h1,h2,h3,h4,h5,h6 {
+	font-family: "Roboto", sans-serif
+}
+nav  {
+  /* If you want the text to be centered */
+}
+
+.center {
+  text-align: center;
+  margin-left: 50%;
+  margin-right: auto;
+}
+
