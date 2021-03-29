@@ -1,0 +1,215 @@
+<article class="m_bmi_calculator hide_arrow bg_color_accent_light border_pattern_before">
+
+								<div class="__inner">
+
+									<div class="__calculator">
+
+										<h2>Body mass index (BMI)</h2>
+
+										<form action="#" class="js_bmi_form">
+
+											<ul class="__gender">
+													<li>
+														<input type="radio" name="gender" value="" id="male" class="visuallyhidden">
+															<label for="male">
+																<span class="__avatar-window --male">
+																<img src="/images/elements/bmi-male-loop.gif" alt="BMI Calculator-male">
+															</span> Male</label>
+													</li>
+
+													<li>
+														<input type="radio" name="gender" value="" id="female" class="visuallyhidden">
+															<label for="female">
+																<span class="__avatar-window --female">
+																<img src="/images/elements/bmi-female-loop.gif" alt="BMI Calculator-female">
+															</span> Female </label>
+													</li>
+											</ul>
+
+                                            <ul class="__unit">
+                                                <li>
+                                                    <a href="#" id="js_show_metric" class="">Metric</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" id="js_show_imperial" class="is_active">Imperial</a>
+                                                </li>
+                                            </ul>
+
+											<ul class="__form-items">
+												<li>
+													<h3>Height</h3>
+													<div class="__form-elements js_input_container">
+														<div id="slider-height" class="__slider-item ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 57.1429%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 57.1429%;"></span></div>
+														<div class="__input-container">
+															<div class="__field is_hidden" data-unit="metric">
+																<label for="height-metric">cm</label>
+																<input type="text" id="height-metric" class="js_num_lock  js_metric_height">
+															</div>
+															<div class="__field  is_split" data-unit="imperial">
+																<label for="height-imperial-feet">ft</label>
+																<input type="text" id="height-imperial-feet" data-value="height" class="js_imperial_feet" maxlength="1">
+															</div>
+															<div class="__field  is_split" data-unit="imperial">
+																<label for="height-imperial-inches">in</label>
+																<input type="text" id="height-imperial-inches" class="js_num_lock js_imperial_inches">
+															</div>
+														</div>
+													</div>
+												</li>
+												<li>
+													<h3>Weight</h3>
+
+													<div class="__form-elements js_input_container">
+														<div id="slider-weight" class="__slider-item ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 33.3333%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 33.3333%;"></span></div>
+														<div class="__input-container">
+															<div class="__field is_hidden" data-unit="metric">
+																<label for="weight-metric">kg</label>
+																<input type="text" id="weight-metric" class="js_num_lock js_metric_weight">
+															</div>
+															<div class="__field" data-unit="imperial">
+																<label for="weight-imperial">Lbs</label>
+																<input type="text" id="weight-imperial" class="js_num_lock  js_imperial_weight">
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+
+
+											<a href="#" id="js_calculate_bmi" class="btn has_bg">Calculate your BMI</a>
+										</form>
+									</div><!-- __calculator -->
+									<div class="__content-container">
+										<div class="__content">
+											
+											<a href="https://www.qantasassure.com/health-insurance?utm_medium=web&amp;utm_source=BMI&amp;utm_campaign=Qantas_Assure&amp;utm_content=text_box&amp;utm_term=" class="__logo-container" target="_blank">
+												
+												<img src="/images/made/images/uploads/jump-rope/QANTAS_Wellbeing_BMI_150_33_85.jpg" alt="BMI Calculator-logo">
+												
+											</a>
+											
+											<p>BMI is a useful measurement for most people over 18 years old. But it is only an estimate and it doesn’t take into account&nbsp;age, ethnicity, gender and body composition. We recommend you also check your waist measurement&nbsp;and&nbsp;other risk factors.</p>
+
+<p>Speak to your doctor, an Accredited Practising Dietitian or a health practitioner about your weight.</p>
+
+<p>This calculator shouldn’t be used for pregnant women or children.</p>
+										</div>
+
+										<div class="__sponsor">
+											<h3 class="__logo-label">Supported by</h3>
+
+											
+											<a href="https://www.qantasassure.com/health-insurance?utm_medium=web&amp;utm_source=BMI&amp;utm_campaign=Qantas_Assure&amp;utm_content=Supported_by&amp;utm_term=" class="__logo-container" target="_blank">
+												
+												<img src="/images/made/images/uploads/jump-rope/QANTAS_Wellbeing_BMI_150_33_85.jpg" alt="BMI Calculator-Qantas Assure">
+												
+											</a>
+											
+										</div><!-- __sponsor -->
+									</div><!-- __info -->
+
+
+								</div><!-- __inner -->
+							</article>
+
+
+
+
+
+
+<article class="m_bmi_result is_hidden">
+							<h2 id="adviceHeadUnderWeight" style="display: none;">
+										
+										
+										<img src="/images/uploads/jump-rope/heart-icon-underweight.png" alt="BMI Calculator-underweight results">
+										
+										
+									Underweight (BMI less than 18.5)</h2>
+								
+
+								
+										<h2 id="adviceHeadHealthyWeight" style="display: none;">
+											
+											
+											<img src="/images/uploads/jump-rope/heart-icon-normal.png" alt="BMI Calculator-healthy weight results">
+											
+											
+										Healthy Weight (BMI 18.5 to 24.9)</h2>
+								
+
+								
+										<h2 id="adviceHeadOverweight" style="display: none;">
+										
+											
+											<img src="/images/uploads/jump-rope/heart-icon-overweight.png" alt="BMI Calculator-overweight results">
+											
+										
+										Overweight (BMI 25 to 30)</h2>
+								
+
+								
+										<h2 id="adviceHeadObese" style="display: none;">
+										
+											
+											<img src="/images/uploads/jump-rope/heart-icon-obese.png" alt="BMI Calculator-obese results">
+											
+										
+										Obese (BMI 30 +)</h2>
+
+							<div class="__result_bar">
+								<h3>Your BMI</h3>
+								<div class="__bar">
+									<div id="bmi_underweight" class="__part is_underweight">
+										<span class="__indicator  bmiResult  js_bmi_indicator" data-min="7" data-max="18.5"></span>
+										<span class="__section-name  is_large">Underweight</span>
+										<span class="__section-name  is_mobile">Underw.</span>
+									</div>
+									<div id="bmi_normal" class="__part is_normal is_active">
+										<span class="__indicator  bmiResult  js_bmi_indicator" data-min="18.5" data-max="25">24</span>
+										<span class="__section-name">Healthy</span>
+									</div>
+									<div id="bmi_overweight" class="__part is_overweight">
+										<span class="__indicator  bmiResult  js_bmi_indicator" data-min="25" data-max="30"></span>
+										<span class="__section-name  is_large">Overweight</span>
+										<span class="__section-name  is_mobile">Overw.</span>
+									</div>
+									<div id="bmi_obese" class="__part is_obese">
+										<span class="__indicator  bmiResult  js_bmi_indicator" data-min="30" data-max="88"></span>
+										<span class="__section-name">Obese</span>
+									</div>
+								</div><!-- __bar -->
+							</div>
+
+							<p class="__suggested">Your suggested healthy weight range <span id="suggestedWeightLowMetric" class="is_hidden"><span>53</span> </span><span id="suggestedWeightLowImperial" class=""><span>117</span> </span> - <span id="suggestedWeightHighMetric" class="is_hidden">72</span><span id="suggestedWeightHighImperial" class="">159</span><span class="suggested_weight_unit_metric is_hidden">kg</span><span class="suggested_weight_unit_imperial">Lbs</span></p>
+
+							
+								<div id="adviceTextUnderWeight" style="display: none;"><p>You are underweight for your height. It's important to aim to keep within your healthy weight range. Being in the healthy weight range will improve your body's ability to fight off infection or illness.</p>
+
+<p><strong>Talk to your GP</strong></p>
+
+<p>If you're concerned about your weight or you are losing weight without trying, talk to your doctor or&nbsp;an Accredited Practising Dietitian.</p></div>
+								<div id="adviceTextHealthyWeight" style="display: none;"><p>You are a healthy weight for your height. But we recommend that you also check your&nbsp;<a href="https://heartfoundation.org.au/your-heart/know-your-risks/healthy-weight/waist-measurement">waist measurement</a>.</p>
+
+<p>Aim to keep within the healthy weight range by enjoying a <a href="https://www.heartfoundation.org.au/healthy-eating/food-and-nutrition">healthy, well-balanced diet</a>&nbsp;and exercising regularly. Most adults should get at least 30 minutes of moderate-intensity physical activity on most, if not all, days.</p>
+
+<p>For older Australians, your general health may be more important than being mildly overweight. Some researchers have suggested that a BMI range of 22-26 is acceptable for older Australians over 70 years old.</p></div>
+								<div id="adviceTextOverweight" style="display: none;"><p>We also recommend you check your&nbsp;<a href="https://heartfoundation.org.au/your-heart/know-your-risks/healthy-weight/waist-measurement">waist measurement</a>.</p>
+
+<p>Being overweight increases your risk of developing coronary heart disease, as well as other health conditions. Keeping to a healthy weight will help you control your blood pressure and cholesterol levels. To <a href="https://www.heartfoundation.org.au/your-heart/know-your-risks/healthy-weight">achieve and maintain a healthy weight</a>, be physically active every day and enjoy&nbsp;a&nbsp;<a href="http://heartfoundation.org.au/healthy-eating/food-and-nutrition">healthy, well-balanced diet.</a></p>
+
+<p>For individualised medical and dietary advice consult your doctor and/or an Accredited Practising Dietitian.</p></div>
+								<div id="adviceTextObese" style="display: none;"><p>We also recommend you check your&nbsp;<a href="https://heartfoundation.org.au/your-heart/know-your-risks/healthy-weight/waist-measurement">waist measurement</a>.</p>
+
+<p>As your BMI increases&nbsp;so does your risk of developing coronary heart disease, as well as other heath conditions. It is important that you take steps to reduce your weight. The good news is that even losing small amounts of weight can benefit your health. To <a href="https://www.heartfoundation.org.au/your-heart/know-your-risks/healthy-weight" target="_blank">achieve and maintain a healthy weight</a>&nbsp;be physically active every day and eat a <a href="http://heartfoundation.org.au/healthy-eating/food-and-nutrition">healthy, well-balanced diet</a>&nbsp;that&nbsp;meets your energy needs.</p>
+
+<p><strong>Talk to your Doctor</strong></p>
+
+<p>For individualised medical and dietary advice consult your doctor and Accredited Practising Dietitian. If your BMI is over 35, your doctor may advise you on additional options available to support you with losing weight.</p></div>
+							
+
+							<p>For more information call The Heart Foundation Helpline on 13 11 12.</p>
+
+<p>This BMI calculator is made available through the support of Qantas Insurance. To start tracking your step activity, set daily and weekly goals, and compete in group challenges with your friends and family, download the <a href="https://wellnss.qantasassure.com/qantasassureapp" target="_blank">Qantas Wellbeing App</a> today.*</p>
+
+							<p class="small">*THE QANTAS ASSURE APP (APP) IS OFFERED BY QANTAS AND YOU MUST BE A MEMBER OF THE QANTAS FREQUENT FLYER PROGRAM AND AGED 13 YEARS OR OVER TO USE THE APP. TO EARN QANTAS POINTS THROUGH THE APP, MEMBERS MUST PURCHASE AND MAINTAIN A HEALTH INSURANCE POLICY WITH QANTAS ASSURE.</p>
+						</article>						
