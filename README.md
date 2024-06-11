@@ -1,0 +1,153 @@
+#!/bin/bash
+
+# Destination directory for scripts and templates
+destination="$HOME/bin"
+templates_dir="$HOME/codeshell/templates"
+plugins_dir="$HOME/codeshell/plugins"
+
+# Create necessary directories
+mkdir -p "$destination"
+mkdir -p "$templates_dir"
+mkdir -p "$plugins_dir"
+
+# Copy the script file and templates to the destination directory
+cp codeshell "$destination"
+cp templates/* "$templates_dir"
+
+# Change permissions to make the scripts executable
+chmod +x "$destination/codeshell"
+
+# Function to update PATH in shell configuration file
+update_path() {
+    local config_file="$1"
+    local shell_type="$2"
+
+    if [[ ! -f "$config_file" ]]; then
+        echo "$config_file not found. Skipping PATH update for $shell_type."
+        return
+    fi
+
+    if grep -q "$destination" "$config_file"; then
+        echo "PATH already updated in $config_file for $shell_type."
+    else
+        echo "Updating PATH in $config_file for $shell_type."
+        echo 'export PATH="$HOME/bin:$PATH"' >> "$config_file"
+    fi
+}
+
+# Update PATH for bash
+update_path "$HOME/.bashrc" "bash"
+update_path "$HOME/.bash_profile" "bash"
+
+# Update PATH for zsh if it exists
+if [[ -f "$HOME/.zshrc" ]]; then
+    update_path "$HOME/.zshrc" "zsh"
+fi
+
+# Source the configuration files to apply changes
+source "$HOME/.bashrc" 2>/dev/null
+source "$HOME/.bash_profile" 2>/dev/null
+source "$HOME/.zshrc" 2>/dev/null
+
+echo "CodeShell installed successfully and PATH updated."
+
+# Main CodeShell Script
+cat << 'EOF' > "$destination/codeshell"
+#!/bin/bash
+
+# Directory for templates and plugins
+templates_dir="$HOME/codeshell/templates"
+plugins_dir="$HOME/codeshell/plugins"
+
+# Function to display main menu
+display_menu() {
+    echo "Select an option:"
+    echo "1. Create a new C/C++ program"
+    echo "2. Build and run selected program"
+    echo "3. Display word count and number of lines"
+    echo "4. Add a new template from URL"
+    echo "5. Exit"
+}
+
+# Function to create a new C/C++ program
+create_program() {
+    echo "Select a template:"
+    select template in $(ls $templates_dir) "Back to main menu"; do
+        if [ "$template" == "Back to main menu" ]; then
+            return
+        elif [ -n "$template" ]; then
+            read -p "Enter the filename for your program (without extension): " filename
+            cp "$templates_dir/$template" "$filename.c"
+            vim "$filename.c"
+            return
+        else
+            echo "Invalid choice. Please try again."
+        fi
+    done
+}
+
+# Function to build and run selected program
+build_and_run_program() {
+    read -p "Enter the filename of the program you want to build and run (without extension): " program_name
+
+    if [ ! -f "$program_name.c" ]; then
+        echo "Source file '$program_name.c' not found."
+        return
+    fi
+
+    gcc "$program_name.c" -o "$program_name" 2> compile.log
+
+    if [ $? -eq 0 ]; then
+        ./"$program_name"
+    else
+        echo "Compilation failed. See compile.log for details."
+    fi
+}
+
+# Function to display word count and number of lines
+display_word_count_and_lines() {
+    read -p "Enter the filename to analyze (without extension): " filename
+
+    if [ ! -f "$filename.c" ]; then
+        echo "File '$filename.c' not found."
+        return
+    fi
+
+    word_count=$(wc -w < "$filename.c")
+    line_count=$(wc -l < "$filename.c")
+
+    echo "Total words: $word_count"
+    echo "Total lines: $line_count"
+}
+
+# Function to add a new template from URL
+add_template() {
+    read -p "Enter the URL of the template: " url
+    read -p "Enter the name to save the template as: " template_name
+
+    curl -o "$templates_dir/$template_name" "$url"
+
+    if [ $? -eq 0 ]; then
+        echo "Template downloaded and saved as $template_name."
+    else
+        echo "Failed to download template."
+    fi
+}
+
+# Main loop
+while true; do
+    display_menu
+    read -p "Enter your choice: " main_choice
+
+    case $main_choice in
+        1) create_program ;;
+        2) build_and_run_program ;;
+        3) display_word_count_and_lines ;;
+        4) add_template ;;
+        5) echo "Exiting."; exit ;;
+        *) echo "Invalid choice. Please try again." ;;
+    esac
+done
+EOF
+
+echo "Main CodeShell script created and installed in $destination."
