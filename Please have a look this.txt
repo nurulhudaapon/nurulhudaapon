@@ -5,17 +5,17 @@ destination="$HOME/bin"
 templates_dir="$HOME/codeshell/templates"
 plugins_dir="$HOME/codeshell/plugins"
 
-# Create necessary directories
-mkdir -p "$destination"
-mkdir -p "$templates_dir"
-mkdir -p "$plugins_dir"
+# Create necessary directories with error handling
+mkdir -p "$destination" || { echo "Failed to create $destination"; exit 1; }
+mkdir -p "$templates_dir" || { echo "Failed to create $templates_dir"; exit 1; }
+mkdir -p "$plugins_dir" || { echo "Failed to create $plugins_dir"; exit 1; }
 
-# Copy the script file and templates to the destination directory
-cp codeshell "$destination"
-cp templates/* "$templates_dir"
+# Copy the script file and templates to the destination directory with error handling
+cp codeshell "$destination" || { echo "Failed to copy codeshell to $destination"; exit 1; }
+cp templates/* "$templates_dir" || { echo "Failed to copy templates to $templates_dir"; exit 1; }
 
 # Change permissions to make the scripts executable
-chmod +x "$destination/codeshell"
+chmod +x "$destination/codeshell" || { echo "Failed to make codeshell executable"; exit 1; }
 
 # Function to update PATH in shell configuration file
 update_path() {
@@ -45,9 +45,9 @@ if [[ -f "$HOME/.zshrc" ]]; then
 fi
 
 # Source the configuration files to apply changes
-source "$HOME/.bashrc" 2>/dev/null
-source "$HOME/.bash_profile" 2>/dev/null
-source "$HOME/.zshrc" 2>/dev/null
+[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc"
+[[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"
+[[ -f "$HOME/.zshrc" ]] && source "$HOME/.zshrc"
 
 echo "CodeShell installed successfully and PATH updated."
 
@@ -151,3 +151,10 @@ done
 EOF
 
 echo "Main CodeShell script created and installed in $destination."
+
+# Check dependencies
+for dep in gcc curl vim; do
+    if ! command -v $dep &> /dev/null; then
+        echo "Warning: $dep is not installed. Please install it to use all features of CodeShell."
+    fi
+done
