@@ -3,26 +3,48 @@
 # Define the templates directory
 TEMPLATES_DIR="templates"
 
+# Define colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
 # Define function to display main menu
 display_menu() {
-    echo "Select an option:"
-    echo "1. Create a new C program"
-    echo "2. Build and run selected program"
-    echo "3. Add a new template"
-    echo "4. Add a new online template"
-    echo "5. View code statistics"
-    echo "6. Exit"
+    clear
+
+cat << "EOF"
+
+        _____           _      _____ _          _ _ 
+        /  __ \         | |    /  ___| |        | | |
+        | /  \/ ___   __| | ___\ `--.| |__   ___| | |
+        | |    / _ \ / _` |/ _ \`--. \ '_ \ / _ \ | |
+        | \__/\ (_) | (_| |  __/\__/ / | | |  __/ | |
+        \____/\___/ \__,_|\___\____/|_| |_|\___|_|_|
+                                                                                                          
+
+EOF
+
+
+    echo -e "${BOLD}Select an option:${NC}"
+    echo -e "${BLUE}1. Create a new C program${NC}"
+    echo -e "${BLUE}2. Build and run selected program${NC}"
+    echo -e "${BLUE}3. Add a new template${NC}"
+    echo -e "${BLUE}4. Add a new online template${NC}"
+    echo -e "${BLUE}5. View code statistics${NC}"
+    echo -e "${BLUE}6. Exit${NC}"
 }
 
 # Define function to create a new C program
 create_c_program() {
-    # Display available templates
-    echo "Available templates:"
+    clear
+    echo -e "${BOLD}Available templates:${NC}"
     templates=($TEMPLATES_DIR/*.c)
     for i in "${!templates[@]}"; do
-        echo "$((i + 1)). ${templates[$i]##*/}"
+        echo -e "${GREEN}$((i + 1)). ${templates[$i]##*/}${NC}"
     done
-    echo "$(( ${#templates[@]} + 1 )). Back to main menu"
+    echo -e "${GREEN}$(( ${#templates[@]} + 1 )). Back to main menu${NC}"
 
     read -p "Enter your choice: " choice
 
@@ -31,7 +53,7 @@ create_c_program() {
     elif [ $choice -eq $(( ${#templates[@]} + 1 )) ]; then
         return
     else
-        echo "Invalid choice. Please try again."
+        echo -e "${RED}Invalid choice. Please try again.${NC}"
         return
     fi
 
@@ -40,7 +62,7 @@ create_c_program() {
 
     # Check if the selected template exists
     if [ ! -f $template_file ]; then
-        echo "Template file not found. Exiting."
+        echo -e "${RED}Template file not found. Exiting.${NC}"
         exit 1
     fi
 
@@ -57,7 +79,7 @@ build_and_run_program() {
 
     # Check if the source file exists
     if [ ! -f "$program_name.c" ]; then
-        echo "Source file '$program_name.c' not found."
+        echo -e "${RED}Source file '$program_name.c' not found.${NC}"
         return
     fi
 
@@ -67,9 +89,9 @@ build_and_run_program() {
     # Check if compilation was successful
     if [ $? -eq 0 ]; then
         # Run the program
-        "./$program_name"
+        ./"$program_name"
     else
-        echo "Compilation failed."
+        echo -e "${RED}Compilation failed.${NC}"
     fi
 }
 
@@ -80,7 +102,7 @@ add_new_template() {
 
     # Check if the template already exists
     if [ -f $new_template ]; then
-        echo "Template already exists."
+        echo -e "${RED}Template already exists.${NC}"
         return
     fi
 
@@ -90,9 +112,10 @@ add_new_template() {
     # Open the new template file in Vim
     vim $new_template
 
-    echo "Template $template_name created successfully."
+    echo -e "${GREEN}Template $template_name created successfully.${NC}"
 }
 
+# Define function to add a new online template
 add_new_online_template() {
     read -p "Enter the URL of the online template: " template_url
     read -p "Enter the filename for the new template (without extension): " template_name
@@ -100,7 +123,7 @@ add_new_online_template() {
 
     # Check if the template already exists
     if [ -f $new_template ]; then
-        echo "Template already exists."
+        echo -e "${RED}Template already exists.${NC}"
         return
     fi
 
@@ -110,7 +133,7 @@ add_new_online_template() {
     # Open the new template file in Vim
     vim $new_template
 
-    echo "Template $template_name created successfully."
+    echo -e "${GREEN}Template $template_name created successfully.${NC}"
 }
 
 # Define function to view code statistics
@@ -119,15 +142,15 @@ view_code_statistics() {
 
     # Check if the source file exists
     if [ ! -f "$program_name.c" ]; then
-        echo "Source file '$program_name.c' not found."
+        echo -e "${RED}Source file '$program_name.c' not found.${NC}"
         return
     fi
 
     # Display code statistics
-    echo "Statistics for $program_name.c:"
-    echo "Line count: $(wc -l < "$program_name.c")"
-    echo "Word count: $(wc -w < "$program_name.c")"
-    echo "Character count: $(wc -m < "$program_name.c")"
+    echo -e "${BOLD}Statistics for $program_name.c:${NC}"
+    echo -e "${GREEN}Line count: $(wc -l < "$program_name.c")${NC}"
+    echo -e "${GREEN}Word count: $(wc -w < "$program_name.c")${NC}"
+    echo -e "${GREEN}Character count: $(wc -m < "$program_name.c")${NC}"
 }
 
 # Main loop
@@ -141,7 +164,12 @@ while true; do
         3) add_new_template ;;
         4) add_new_online_template ;;
         5) view_code_statistics ;;
-        6) echo "Exiting."; exit ;;
-        *) echo "Invalid choice. Please try again." ;;
+        6) echo -e "${GREEN}Exiting.${NC}"; exit ;;
+        *) echo -e "${RED}Invalid choice. Please try again.${NC}" ;;
     esac
+
+    # Pause to allow user to see the result before returning to the menu
+    if [ $main_choice -ne 1 ]; then
+        read -p "Press Enter to return to the menu..."
+    fi
 done
