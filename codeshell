@@ -1,36 +1,40 @@
 #!/bin/bash
 
+# Define the templates directory
+TEMPLATES_DIR="templates"
+
 # Define function to display main menu
 display_menu() {
     echo "Select an option:"
     echo "1. Create a new C program"
     echo "2. Build and run selected program"
-    echo "3. Exit"
+    echo "3. Add a new template"
+    echo "4. Exit"
 }
 
 # Define function to create a new C program
 create_c_program() {
-    # Prompt user to select a template
-    echo "Select a template:"
-    echo "1. Basic C program"
-    echo "2. Another template (add more if needed)"
-    echo "3. Back to main menu"
+    # Display available templates
+    echo "Available templates:"
+    templates=($TEMPLATES_DIR/*.c)
+    for i in "${!templates[@]}"; do
+        echo "$((i + 1)). ${templates[$i]##*/}"
+    done
+    echo "$(( ${#templates[@]} + 1 )). Back to main menu"
 
     read -p "Enter your choice: " choice
 
-    # Define the template files
-    basic_template="templates/basic.c"
-    another_template="template/io.c"
+    if [ $choice -le ${#templates[@]} ] && [ $choice -gt 0 ]; then
+        template_file=${templates[$((choice - 1))]}
+    elif [ $choice -eq $(( ${#templates[@]} + 1 )) ]; then
+        return
+    else
+        echo "Invalid choice. Please try again."
+        return
+    fi
 
     # Define the filename for the new C program
     read -p "Enter the filename for your C program (without extension): " filename
-
-    case $choice in
-        1) template_file=$basic_template ;;
-        2) template_file=$another_template ;;
-        3) return ;;
-        *) echo "Invalid choice. Please try again."; return ;;
-    esac
 
     # Check if the selected template exists
     if [ ! -f $template_file ]; then
@@ -67,6 +71,26 @@ build_and_run_program() {
     fi
 }
 
+# Define function to add a new template
+add_new_template() {
+    read -p "Enter the filename for the new template (without extension): " template_name
+    new_template="$TEMPLATES_DIR/$template_name.c"
+
+    # Check if the template already exists
+    if [ -f $new_template ]; then
+        echo "Template already exists."
+        return
+    fi
+
+    # Create a new template file
+    touch $new_template
+
+    # Open the new template file in Vim
+    vim $new_template
+
+    echo "Template $template_name created successfully."
+}
+
 # Main loop
 while true; do
     display_menu
@@ -75,7 +99,8 @@ while true; do
     case $main_choice in
         1) create_c_program ;;
         2) build_and_run_program ;;
-        3) echo "Exiting."; exit ;;
+        3) add_new_template ;;
+        4) echo "Exiting."; exit ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 done
