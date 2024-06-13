@@ -9,8 +9,9 @@ display_menu() {
     echo "1. Create a new C program"
     echo "2. Build and run selected program"
     echo "3. Add a new template"
-    echo "4. View code statistics"
-    echo "5. Exit"
+    echo "4. Add a new online template"
+    echo "5. View code statistics"
+    echo "6. Exit"
 }
 
 # Define function to create a new C program
@@ -92,6 +93,26 @@ add_new_template() {
     echo "Template $template_name created successfully."
 }
 
+add_new_online_template() {
+    read -p "Enter the URL of the online template: " template_url
+    read -p "Enter the filename for the new template (without extension): " template_name
+    new_template="$TEMPLATES_DIR/$template_name.c"
+
+    # Check if the template already exists
+    if [ -f $new_template ]; then
+        echo "Template already exists."
+        return
+    fi
+
+    # Download the online template
+    curl -o $new_template $template_url
+
+    # Open the new template file in Vim
+    vim $new_template
+
+    echo "Template $template_name created successfully."
+}
+
 # Define function to view code statistics
 view_code_statistics() {
     read -p "Enter the filename of the program to view statistics (without extension): " program_name
@@ -118,8 +139,9 @@ while true; do
         1) create_c_program ;;
         2) build_and_run_program ;;
         3) add_new_template ;;
-        4) view_code_statistics ;;
-        5) echo "Exiting."; exit ;;
+        4) add_new_online_template ;;
+        5) view_code_statistics ;;
+        6) echo "Exiting."; exit ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 done
