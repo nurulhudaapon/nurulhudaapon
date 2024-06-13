@@ -9,7 +9,8 @@ display_menu() {
     echo "1. Create a new C program"
     echo "2. Build and run selected program"
     echo "3. Add a new template"
-    echo "4. Exit"
+    echo "4. View code statistics"
+    echo "5. Exit"
 }
 
 # Define function to create a new C program
@@ -91,6 +92,23 @@ add_new_template() {
     echo "Template $template_name created successfully."
 }
 
+# Define function to view code statistics
+view_code_statistics() {
+    read -p "Enter the filename of the program to view statistics (without extension): " program_name
+
+    # Check if the source file exists
+    if [ ! -f "$program_name.c" ]; then
+        echo "Source file '$program_name.c' not found."
+        return
+    fi
+
+    # Display code statistics
+    echo "Statistics for $program_name.c:"
+    echo "Line count: $(wc -l < "$program_name.c")"
+    echo "Word count: $(wc -w < "$program_name.c")"
+    echo "Character count: $(wc -m < "$program_name.c")"
+}
+
 # Main loop
 while true; do
     display_menu
@@ -100,7 +118,8 @@ while true; do
         1) create_c_program ;;
         2) build_and_run_program ;;
         3) add_new_template ;;
-        4) echo "Exiting."; exit ;;
+        4) view_code_statistics ;;
+        5) echo "Exiting."; exit ;;
         *) echo "Invalid choice. Please try again." ;;
     esac
 done
