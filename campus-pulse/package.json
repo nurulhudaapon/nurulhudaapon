@@ -1,0 +1,14 @@
+{
+  "name": "realtime-notices",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:client": "npm run dev -w client",
+    "dev:server": "cd apps/server && ./mvnw spring-boot:run",
+    "db:generate": "npm run generate -w @shared/db",
+    "db:push": "npm run db:push -w @shared/db"
+  }
+} 
