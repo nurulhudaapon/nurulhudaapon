@@ -1,0 +1,1 @@
+select first_name, last_name, age from person left join address on person.id = address.person_id where age > 18 group by age order by age desc;
