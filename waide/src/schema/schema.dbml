@@ -1,0 +1,47 @@
+Table "user" {
+  "id" INT [pk, not null, increment]
+  "password" VARCHAR(255) [not null]
+  "email" VARCHAR(255) [not null]
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "last_submission_at" TIMESTAMP
+
+Indexes {
+  email [unique]
+}
+}
+
+Table "user_profile" {
+  "id" INT [pk, not null, increment]
+  "user_id" INT [not null]
+  "first_name" VARCHAR(255) [not null]
+  "last_name" VARCHAR(255) [not null]
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "code" {
+  "id" INT [pk, not null, increment]
+  "user_id" INT [not null]
+  "algorithm" VARCHAR(255) [not null]
+  "variation" VARCHAR(255) [not null]
+  "slug" VARCHAR(255) [not null]
+  "code" VARCHAR(255) [not null]
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "code_performance" {
+  "id" INT [pk, not null, increment]
+  "code_id" INT [not null]
+  "time" INT [not null]
+  "memory" INT [not null]
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Ref:"user"."id" < "user_profile"."user_id"
+
+Ref:"user"."id" < "code"."user_id"
+
+Ref:"code"."id" < "code_performance"."code_id"
