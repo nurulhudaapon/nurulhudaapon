@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NHAs App</string>
+    <string name="imgD">Portfolio image of Nurul Huda</string>
+    <string name="intro">Hi I am Nurul Huda and this is my first android app.</string>
+    <string name="vmw">You can visit my website by clicking on the button bellow.</string>
+    <string name="v">Visit</string>
+</resources>
