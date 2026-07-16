@@ -1,0 +1,26 @@
+pub fn CounterComponent(allocator: zx.Allocator) zx.Component {
+    return (
+        <div @allocator={allocator}>
+            <button onclick={handleReset}>Reset</button>
+            <h5>{count}</h5>
+            <button onclick={handleDecrement}>Decrement</button>
+            <button onclick={handleIncrement}>Increment</button>
+        </div>
+    );
+}
+
+var count: i32 = 0;
+
+fn handleIncrement(_: zx.EventContext) void {
+    count += 1;
+}
+
+fn handleDecrement(_: zx.EventContext) void {
+    count -= 1;
+}
+
+fn handleReset(_: zx.EventContext) void {
+    count = 0;
+}
+
+const zx = @import("zx");

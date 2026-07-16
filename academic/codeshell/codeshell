@@ -1,0 +1,172 @@
+#!/bin/bash
+
+# Define the templates directory
+TEMPLATES_DIR="templates"
+
+# Define colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+# Define function to display main menu
+display_menu() {
+    clear
+
+cat << "EOF"
+   ____          _      ____  _          _ _ 
+  / ___|___   __| | ___/ ___|| |__   ___| | |
+ | |   / _ \ / _` |/ _ \___ \| '_ \ / _ \ | |
+ | |__| (_) | (_| |  __/___) | | | |  __/ | |
+  \____\___/ \__,_|\___|____/|_| |_|\___|_|_|
+
+EOF
+
+
+    echo -e "${BOLD}Select an option:${NC}"
+    echo -e "${BLUE}1. Create a new C program${NC}"
+    echo -e "${BLUE}2. Build and run selected program${NC}"
+    echo -e "${BLUE}3. Add a new template${NC}"
+    echo -e "${BLUE}4. Add a new online template${NC}"
+    echo -e "${BLUE}5. View code statistics${NC}"
+    echo -e "${BLUE}6. Exit${NC}"
+}
+
+# Define function to create a new C program
+create_c_program() {
+    clear
+    echo -e "${BOLD}Available templates:${NC}"
+    templates=($TEMPLATES_DIR/*.c)
+    for i in "${!templates[@]}"; do
+        echo -e "${GREEN}$((i + 1)). ${templates[$i]##*/}${NC}"
+    done
+    echo -e "${GREEN}$(( ${#templates[@]} + 1 )). Back to main menu${NC}"
+
+    read -p "Enter your choice: " choice
+
+    if [ $choice -le ${#templates[@]} ] && [ $choice -gt 0 ]; then
+        template_file=${templates[$((choice - 1))]}
+    elif [ $choice -eq $(( ${#templates[@]} + 1 )) ]; then
+        return
+    else
+        echo -e "${RED}Invalid choice. Please try again.${NC}"
+        return
+    fi
+
+    # Define the filename for the new C program
+    read -p "Enter the filename for your C program (without extension): " filename
+
+    # Check if the selected template exists
+    if [ ! -f $template_file ]; then
+        echo -e "${RED}Template file not found. Exiting.${NC}"
+        exit 1
+    fi
+
+    # Create a new C program file from the selected template
+    cp $template_file "$filename.c"
+
+    # Open the new C program file in Vim
+    vim "$filename.c"
+}
+
+# Define function to build and run selected program
+build_and_run_program() {
+    read -p "Enter the filename of the program you want to build and run (without extension): " program_name
+
+    # Check if the source file exists
+    if [ ! -f "$program_name.c" ]; then
+        echo -e "${RED}Source file '$program_name.c' not found.${NC}"
+        return
+    fi
+
+    # Compile the program
+    gcc "$program_name.c" -o "$program_name"
+
+    # Check if compilation was successful
+    if [ $? -eq 0 ]; then
+        # Run the program
+        ./"$program_name"
+    else
+        echo -e "${RED}Compilation failed.${NC}"
+    fi
+}
+
+# Define function to add a new template
+add_new_template() {
+    read -p "Enter the filename for the new template (without extension): " template_name
+    new_template="$TEMPLATES_DIR/$template_name.c"
+
+    # Check if the template already exists
+    if [ -f $new_template ]; then
+        echo -e "${RED}Template already exists.${NC}"
+        return
+    fi
+
+    # Create a new template file
+    touch $new_template
+
+    # Open the new template file in Vim
+    vim $new_template
+
+    echo -e "${GREEN}Template $template_name created successfully.${NC}"
+}
+
+# Define function to add a new online template
+add_new_online_template() {
+    read -p "Enter the URL of the online template: " template_url
+    read -p "Enter the filename for the new template (without extension): " template_name
+    new_template="$TEMPLATES_DIR/$template_name.c"
+
+    # Check if the template already exists
+    if [ -f $new_template ]; then
+        echo -e "${RED}Template already exists.${NC}"
+        return
+    fi
+
+    # Download the online template
+    curl -o $new_template $template_url
+
+    # Open the new template file in Vim
+    vim $new_template
+
+    echo -e "${GREEN}Template $template_name created successfully.${NC}"
+}
+
+# Define function to view code statistics
+view_code_statistics() {
+    read -p "Enter the filename of the program to view statistics (without extension): " program_name
+
+    # Check if the source file exists
+    if [ ! -f "$program_name.c" ]; then
+        echo -e "${RED}Source file '$program_name.c' not found.${NC}"
+        return
+    fi
+
+    # Display code statistics
+    echo -e "${BOLD}Statistics for $program_name.c:${NC}"
+    echo -e "${GREEN}Line count: $(wc -l < "$program_name.c")${NC}"
+    echo -e "${GREEN}Word count: $(wc -w < "$program_name.c")${NC}"
+    echo -e "${GREEN}Character count: $(wc -m < "$program_name.c")${NC}"
+}
+
+# Main loop
+while true; do
+    display_menu
+    read -p "Enter your choice: " main_choice
+
+    case $main_choice in
+        1) create_c_program ;;
+        2) build_and_run_program ;;
+        3) add_new_template ;;
+        4) add_new_online_template ;;
+        5) view_code_statistics ;;
+        6) echo -e "${GREEN}Exiting.${NC}"; exit ;;
+        *) echo -e "${RED}Invalid choice. Please try again.${NC}" ;;
+    esac
+
+    # Pause to allow user to see the result before returning to the menu
+    if [ $main_choice -ne 1 ]; then
+        read -p "Press Enter to return to the menu..."
+    fi
+done

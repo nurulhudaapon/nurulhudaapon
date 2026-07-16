@@ -1,0 +1,24 @@
+.{
+    .name = .zx_site,
+    .version = "0.0.0",
+    .fingerprint = 0xc04151551dc3c31d,
+    .minimum_zig_version = "0.15.2",
+    .dependencies = .{
+        .zx = .{
+            .url = "git+https://github.com/nurulhudaapon/zx#2e373a36996ae9164a381592f5f7bd8b61d63fc2",
+            .hash = "zx-0.1.0-dev.508-8okzKkrKfgB2INceBJEvsN-k4A9Wm9dYfX1jE1uzji-B",
+        },
+        .zqlite = .{
+            .url = "git+https://github.com/karlseguin/zqlite.zig?ref=master#b44ed5cdc64859b08446c246f307e65ebe2b2d9c",
+            .hash = "zqlite-0.0.0-RWLaY_y_mADh2LdbDrG_2HT2dBAcsAR8Jig_7-dOJd0B",
+        },
+        .mcp = .{
+            .path = "vendor/mcp.zig",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}

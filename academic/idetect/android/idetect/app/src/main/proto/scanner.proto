@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.nurulhudaapon.idetect";
+option java_outer_classname = "IdetectProto";
+option objc_class_prefix = "SCN";
+
+package idetect;
+
+// The scanner service definition.
+service Scanner {
+  // Sends a request with scanned text
+  rpc Scan (ScannedRequest) returns (ScannedReply) {}
+
+  // Sends request to get result
+  rpc Result (ResultRequest) returns (ResultReply) {}
+}
+
+// The request message containing the scanned text
+message ScannedRequest {
+  string text = 1;
+}
+
+// The response message
+message ScannedReply {
+  string message = 1;
+}
+
+message ResultRequest {
+  string message = 1;
+}
+
+message ResultReply {
+  string message = 1;
+}

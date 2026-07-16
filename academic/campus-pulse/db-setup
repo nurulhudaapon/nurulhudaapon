@@ -1,0 +1,5 @@
+mkdir -p packages/db
+cd packages/db
+npm init -y
+npm install prisma @prisma/client
+npx prisma init 

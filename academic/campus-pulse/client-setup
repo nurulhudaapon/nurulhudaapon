@@ -1,0 +1,5 @@
+mkdir -p apps/client
+cd apps/client
+npm create vite@latest . -- --template react-ts
+npm install -D tailwindcss postcss autoprefixer @shared/db
+npx tailwindcss init -p 

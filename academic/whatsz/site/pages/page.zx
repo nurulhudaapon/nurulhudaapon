@@ -1,0 +1,52 @@
+pub fn Page(ctx: zx.PageContext) !zx.Component {
+    _ = ctx;
+    return (
+        <main>
+            <section class="hero">
+                <div class="badge">MCP Server</div>
+                <h1>WhatsZ</h1>
+                <p class="tagline">Let AI read your WhatsApp chats</p>
+                <p class="desc">An MCP server built in Zig that gives Claude and other AI assistants access to your local WhatsApp messages.</p>
+                <div class="cta">
+                    <a href="https://github.com/nurulhudaapon/whatsz" class="btn primary">View on GitHub</a>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature">
+                    <span class="icon">💬</span>
+                    <h3>Chat Access</h3>
+                    <p>Browse chats, search messages, view stats</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">⚡</span>
+                    <h3>Fast</h3>
+                    <p>Native Zig performance, instant queries</p>
+                </div>
+                <div class="feature">
+                    <span class="icon">🔒</span>
+                    <h3>Local</h3>
+                    <p>All data stays on your machine</p>
+                </div>
+            </section>
+
+            <section class="tools">
+                <h2>Available Tools</h2>
+                <ul>
+                    <li><code>list_chats</code> — List all conversations</li>
+                    <li><code>get_chat_messages</code> — Read messages from a chat</li>
+                    <li><code>search_messages</code> — Search across all chats</li>
+                    <li><code>get_chat_stats</code> — View chat statistics</li>
+                    <li><code>list_groups</code> — List group chats</li>
+                    <li><code>get_group_members</code> — View group members</li>
+                </ul>
+            </section>
+
+            <footer>
+                <p>Built with Zig • macOS only • <a href="https://github.com/nurulhudaapon/whatsz">GitHub</a></p>
+            </footer>
+        </main>
+    );
+}
+
+const zx = @import("zx");
