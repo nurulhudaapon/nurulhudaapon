@@ -1,0 +1,30 @@
+extends ../base/main.pug
+
+block css
+    include ../res/css/form.css
+    include ../res/css/loader.css
+
+block content
+    include ../includes/modal.pug
+    .container
+        nav
+            #nav-tab.nav.nav-tabs(role='tablist')
+                a#nav-home-tab.nav-item.nav-link.active(data-toggle='tab', href='#nav-home', role='tab', aria-controls='nav-home', aria-selected='true') Deposit
+                a#nav-profile-tab.nav-item.nav-link(data-toggle='tab', href='#nav-profile', role='tab', aria-controls='nav-profile', aria-selected='false') Account
+                a#nav-contact-tab.nav-item.nav-link(data-toggle='tab', href='#nav-contact', role='tab', aria-controls='nav-contact', aria-selected='false') Customer
+        #nav-tabContent.tab-content
+            #nav-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='nav-home-tab')
+                .bo(style='border: 1px solid #dee2e6;border-top: none;')
+                    br
+                    include includes/deposit.pug
+            #nav-profile.tab-pane.fade(role='tabpanel', aria-labelledby='nav-profile-tab')
+                .bo(style='border: 1px solid #dee2e6;border-top: none;')
+                    br            
+                    include includes/account.pug
+            #nav-contact.tab-pane.fade(role='tabpanel', aria-labelledby='nav-contact-tab')
+                .bo(style='border: 1px solid #dee2e6;border-top: none;')
+                    br            
+                    include includes/customer.pug
+    script
+        include ../res/js/form.js
+

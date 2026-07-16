@@ -1,0 +1,27 @@
+extends ../base/main.pug
+
+block css
+    include ../res/css/loader.css
+    include ../res/css/form.css
+block content
+    include ../includes/modal.pug
+    .container
+        form.cform#customer-form
+            .container.register-form
+                .note
+                    p Create New Customer
+                .form-content
+                    .row
+                        .col-md-6
+                            .form-group
+                                input.form-control(name='name' type='text', placeholder='Full Name *', value='' id='name')
+                            .form-group
+                                input.form-control(name='phone' type='text', placeholder='Phone Number *', value='01' id='phone' pattern="[0]{1}[1]{1}[1|3|5|6|7|8|9]{1}[0-9]{8}")
+                        .col-md-6
+                            .form-group
+                                input.form-control(name='address' type='text', placeholder='Address', value='' id='address')
+                            .form-group
+                                input.form-control(name='date' type='date', placeholder='Account Opening Date', value='' id='date')
+                    button.btnSubmit(type='submit') Submit
+    script
+        include ../res/js/form.js 

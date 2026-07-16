@@ -1,0 +1,35 @@
+form.cform#deposit-form
+    .container.register-form
+        .note
+            p Create New Deposit
+        .form-content
+            .row
+                .col-md-6
+                    .form-group
+                        select.form-control(name='account', id='account' onchange='myFunction(event)')
+                            option(hidden selected disabled) Choose account
+                            each n in accounts
+                                option=`${n.name} - ${n.acn}`
+                .col-md-6
+                    .form-group
+                        input.form-control(name='date' type='date', placeholder='Deposited Date', value='' id='date')
+            .row
+                .col
+                    .form-group
+                        input.form-control(name='amount' type='number', placeholder='Deposit Amount', value='' id='amount')
+            .row
+                .col-md-6
+                    .form-group
+                        input.form-control(name='dBy' type='text', placeholder='Deposited By', value='' id='d-by')
+                .col-md-6
+                    .form-group
+                        select.form-control(name='dTo' type='text', placeholder='Deposited To', value='' id='d-to')
+                            option Nurul Huda
+                            option Asik Ahmed
+                    
+            button.btnSubmit(type='submit') Submit
+script.
+    function myFunction(e) {
+        document.getElementById("d-by").value = e.target.value.split(' - ')[0]
+    }
+    

@@ -1,0 +1,62 @@
+body {
+  background-color: #f4f8fb;
+}
+.loader {
+  /* margin: 0 auto; */
+  border: 16px solid #ff5858; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  
+}
+​.center-container {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ebebeb;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+input {
+  border: solid 1px darkseagreen;
+  width: 100px;
+  border-radius: 5px;
+  text-align: center;
+  /* font-weight: bold; */
+  border: 3px;
+}
+.info-container{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 10px;
+  text-align: center;
+    padding-top: 16px;
+  /* border: 2px solid black; */
+}
+
+
+.header {
+  text-align: center;
+  padding: .5rem 1rem;
+  background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+  color: #fff;
+  font-weight: bold;
+}
+.bg-lg-info {
+background: -webkit-linear-gradient(left, #f03db4, #86d420);
+}
+.bg-lg-warning {
+background: -webkit-linear-gradient(left, #99aa00, #324e0c);
+}
+.bg-lg-danger {
+background: -webkit-linear-gradient(left, #ff0808, #86d420);
+}

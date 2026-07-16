@@ -1,0 +1,25 @@
+{
+    "env": "Production",
+    "database": {
+        "uri": "",
+        "customer": "prod-customer",
+        "deposit": "prod-deposit",
+        "account": "prod-account",
+        "withdraw": "prod-withdraw"
+    },
+    "email": {
+        "port": "465",
+        "secure": "",
+        "service": "",
+        "host": "",
+        "from": "Bank-PONSRIK <bank-deposit@ponsrik.cf>",
+        "auth": {
+            "user": "",
+            "pass": ""
+        },
+        "facebook": {
+            "access_token": ""
+        }
+
+    }
+}

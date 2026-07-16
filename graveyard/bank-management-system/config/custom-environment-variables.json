@@ -1,0 +1,15 @@
+{
+    "database": {
+        "uri": "bp_db_uri"
+    },
+    "email": {
+        "service": "bp_email_service",
+        "auth": {
+            "user": "bp_email_user",
+            "pass": "bp_email_pass"
+        }
+    },
+    "facebook": {
+        "access_token": "bp_facebook_access_token"
+    }
+}

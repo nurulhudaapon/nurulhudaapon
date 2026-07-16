@@ -1,0 +1,75 @@
+extends ../base/main.pug
+
+block content
+  -let n = result
+  .container.text-center
+    h3 Your Information
+    table.table.table-striped.table-bordered.table-responsive-sm
+      tr.header
+        th Name
+        th ID
+        th Phone
+        th Address
+        th Email
+        th Join Date
+      tr
+        td=n.name
+        td=n.id
+        td=n.phone
+        td=n.address
+        if n.email
+          td=n.email
+        if !n.email
+          td No Email
+        td=n.date.toDateString()
+    br
+    h3 Your Accounts
+    table.table.table-striped.table-bordered.table-responsive-sm
+      tr.header
+        th Name
+        th ACN
+        th Current
+        th Min
+        th Total
+        th Status
+        th Updated
+        if result.accounts.length != 0
+          each n in result.accounts
+            tr
+              td=n.name
+              td=n.acn
+              td
+                  h5=n.current+' Taka'
+              td=n.min+' Taka'
+              td=n.total+' Taka'
+              if n.matured && n.withdrawn
+                td Withdrawn
+              if n.matured && !n.withdrawn
+                  td Matured
+              if !n.matured && !n.withdrawn
+                  td Running
+              td=n.lastUpdated.toDateString()
+        else
+          tr
+            td(colspan='4') No accounts yet
+    //- br
+    //- h3 Your Deposits
+    //- each n in result.accounts
+    //-   table.table.table-striped.table-bordered.table-responsive-sm
+    //-     tr.header
+    //-       th Date
+    //-       th Tag
+    //-       th Deposited To
+    //-       th Deposited By
+    //-       th Amount
+    //-         each n in n.deposits
+    //-           tr
+    //-             td=n.date.toDateString()
+    //-             td "test"
+    //-             td=n.dTo
+    //-             td=n.dBy
+    //-             td
+    //-               h5=n.amount+' Taka'
+    //-       else
+    //-         tr
+    //-           td(colspan='5') No deposits yet

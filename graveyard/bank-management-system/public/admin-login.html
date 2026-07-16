@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="/static/css/w3.css"> -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> -->
+  <link rel="stylesheet" href="/static/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: aliceblue;
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+    padding: 16px;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid rgba(12,100, 0, .5);
+    background-color: #927eff;
+    color: white;
+    box-shadow: 3px 1px 20px 1px black;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {
+        -webkit-transform: scale(0)
+      }
+
+      to {
+        -webkit-transform: scale(1)
+      }
+    }
+
+    @keyframes animatezoom {
+      from {
+        transform: scale(0)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h4 class="bg-lg-danger header rounded-bottom">This login form is only for the authority.</h4>
+  <div class="container" style="margin:0 auto">
+    <h2 class="">Admin Login Form</h2>
+
+    <form class="animate" action="/login" method="POST">
+
+      <div class="container0f">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" name="remember"> Remember me
+        </label>
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+
+  </script>
+
+</body>
+
+</html>

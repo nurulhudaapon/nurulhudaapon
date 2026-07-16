@@ -1,0 +1,27 @@
+extends ../base/main.pug
+
+block content
+    .container
+        table.table.table-striped.table-bordered.table-responsive-sm
+            tr.header
+                th Name
+                th ID
+                th Phone
+                th Address
+                th Email
+                th Join Date
+            if customers.length != 0
+                each n in customers
+                    tr
+                        td=n.name
+                        td=n.id
+                        td=n.phone
+                        td=n.address
+                        if n.email
+                            td=n.email
+                        if !n.email
+                            td No Email
+                        td=n.date.toDateString()
+            else
+                tr
+                    td(colspan='5') No customers yet

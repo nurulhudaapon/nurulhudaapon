@@ -1,0 +1,28 @@
+extends ../base/main.pug
+
+block css
+    include ../res/css/loader.css
+
+block content
+    h5.bg-dark.p-1.text-center.text-white Bank-PONSRIK
+    .container
+        h5.header.rounded.text-light(style='background:darkorchid;margin-top: 15px;') 
+            |Welcome To 
+            span.text-nowrap.font-weight-bold Bank-PONSRIK 
+            |  Online Service
+        hr
+        //- br
+        form.form(action='/myaccount')
+            .input-group
+                input.form-control(style='height:80px;    height: 80px;font-size: x-large;font-weight: 500;text-align: center;' name='id' maxlength='6' type='search', placeholder='Your ID or ACN' aria-label='Search'  pattern='[0-9]{3}|[0-9]{6}' title='Enter your 3 digit id number or 6 digit account number', aria-describedby='basic-addon2', required)
+                span.input-group-append
+                    button.btn.btn-warning(type='submit' style='width:80px') Go
+        h5.header.rounded-bottom Enter Your ID or ACN
+        hr
+        .text-center
+            h4.header.rounded.d-lg-inline.bg-lg-info.m-2= 'Total Accounts: '+info.accountCount
+            h4.header.rounded.d-lg-inline.bg-lg-danger.m-2= 'Total Customers: '+info.customerCount
+            h4.header.rounded.d-lg-inline.bg-info.m-2= 'Total Money Stored: '+info.totalCurrent+' Taka'
+
+
+

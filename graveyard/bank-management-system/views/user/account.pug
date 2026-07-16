@@ -1,0 +1,47 @@
+extends ../base/main.pug
+
+block content
+  -let n = result
+  .container.text-center
+    h3 Your Account
+    table.table.table-striped.table-bordered.table-responsive-sm
+        tr.header
+          th Name
+          th ACN
+          th Current
+          th Min
+          th Total
+          th Status
+        tr
+          td=n.name
+          td=n.acn
+          td
+              h5=n.current+' Taka'
+          td=n.min+' Taka'
+          td=n.total+' Taka'
+          if n.matured && n.withdrawn
+            td Withdrawn
+          if n.matured && !n.withdrawn
+              td Matured
+          if !n.matured && !n.withdrawn
+              td Running
+    h6='Last Updated: '+n.lastUpdated.toDateString()
+    br
+    h3 Your Deposits
+    table.table.table-striped.table-bordered.table-responsive-sm
+      tr.header
+        th Date
+        th Deposited To
+        th Deposited By
+        th Amount
+        if result.deposits.length != 0
+          each n in result.deposits
+            tr
+              td=n.date.toDateString()
+              td=n.dTo
+              td=n.dBy
+              td
+                h5=n.amount+' Taka'
+        else
+          tr
+            td(colspan='5') No deposits yet

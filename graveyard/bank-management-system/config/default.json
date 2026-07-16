@@ -1,0 +1,21 @@
+{
+    "env": "Default/Development",
+    "database": {
+        "uri": "mongodb://127.0.0.1:27017/bankDev",
+        "customer": "dev-customer",
+        "deposit": "dev-deposit",
+        "account": "dev-account",
+        "withdraw": "dev-withdraw"
+    },
+    "email": {
+        "port": "465",
+        "secure": "true",
+        "service": "",
+        "host": "",
+        "from": "Bank-PONSRIK <bank-deposit@ponsrik.cf>",
+        "auth": {
+            "user": "",
+            "pass": ""
+        }
+    }
+}

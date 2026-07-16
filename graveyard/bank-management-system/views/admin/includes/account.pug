@@ -1,0 +1,19 @@
+form.cform#account-form
+    .container.register-form
+        .note
+            p Create New Account
+        .form-content
+            .row
+                .col-md-6
+                    .form-group
+                        select.form-control(name='customer', id='customer')
+                            each n in customers
+                                option=`${n.name} - ${n.id}`
+                    .form-group
+                        input.form-control(name='date' type='date', placeholder='Account Opening Date', value='' id='date')
+                .col-md-6
+                    .form-group
+                        input.form-control(name='min' type='number', placeholder='Minimum Deposit', value='' id='min')
+                    .form-group
+                        input.form-control(name='total' type='number', placeholder='Total Deposit', value='' id='total')
+            button.btnSubmit(type='submit') Submit

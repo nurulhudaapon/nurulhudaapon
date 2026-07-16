@@ -1,0 +1,21 @@
+{
+    "env": "Testing",
+    "database": {
+        "uri": "",
+        "customer": "test-customer",
+        "deposit": "test-deposit",
+        "account": "test-account",
+        "withdraw": "test-withdraw"
+    },
+    "email": {
+        "port": "465",
+        "secure": "true",
+        "service": "",
+        "host": "",
+        "from": "Bank-PONSRIK <bank-deposit@ponsrik.cf>",
+        "auth": {
+            "user": "",
+            "pass": ""
+        }
+    }
+}

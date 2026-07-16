@@ -1,0 +1,26 @@
+nav.navbar.navbar-expand-lg.navbar-dark.sticky-top.header
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-controls='navbarTogglerDemo01', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarTogglerDemo01.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Home 
+          span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/admin') Admin
+      if false
+        li.nav-item
+          a.nav-link(href='/customers') Customers
+        li.nav-item
+          a.nav-link(href='/statistics.html') Statistics
+        li.nav-item
+        li.nav-item
+          a.nav-link(href='/accounts') Accounts
+        li.nav-item
+          a.nav-link(href='/addNew') Add New
+        li.nav-item
+          a.nav-link(href='/addNew/all') Add New All
+    form.form-inline.my-2.my-lg-0(action='/myaccount')
+      input.form-control.mr-sm-2(name='id' type='search', placeholder='Your ID or ACN' aria-label='Search'  pattern='[0-9]{3}|[0-9]{6}' title='Enter your 3 digit id number or 6 digit account number')
+      button.btn.btn-outline-warning.my-2.my-sm-0(type='submit') Get Info
