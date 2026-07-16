@@ -1,0 +1,18 @@
+pub fn Layout(ctx: zx.LayoutContext, children: zx.Component) zx.Component {
+    return (
+        <html @allocator={ctx.arena} lang="en-US">
+            <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>WhatsZ — MCP Server for WhatsApp</title>
+                <link rel="stylesheet" href="/assets/style.css" />
+                <link rel="icon" href="/favicon.ico" />
+            </head>
+            <body>
+                {children}
+            </body>
+        </html>
+    );
+}
+
+const zx = @import("zx");

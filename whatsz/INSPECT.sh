@@ -1,0 +1,1 @@
+bunx @modelcontextprotocol/inspector zig-out/bin/whatsz_mcp
