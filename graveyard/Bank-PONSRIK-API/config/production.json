@@ -1,0 +1,9 @@
+{
+    "env": "Production",
+    "database": {
+        "uri": "",
+        "customer": "prod-customer",
+        "deposit": "prod-deposit",
+        "account": "prod-account"
+    }
+}

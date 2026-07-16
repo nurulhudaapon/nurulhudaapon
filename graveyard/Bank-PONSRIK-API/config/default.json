@@ -1,0 +1,10 @@
+{
+    "env": "Default",
+    "database": {
+        "uri": "mongodb://127.0.0.1:27017/bank-ponsrik",
+        "customer": "dev-customer",
+        "deposit": "dev-deposit",
+        "account": "dev-account",
+        "withdraw": "dev-withdraw"
+    }
+}

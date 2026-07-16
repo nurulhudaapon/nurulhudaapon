@@ -1,0 +1,68 @@
+GET http://localhost:3000/api/customer
+###
+GET http://localhost:3000/api/withdraw
+###
+GET http://localhost:3000/api/deposit
+###
+GET http://localhost:3000/api/account
+###
+
+POST http://localhost:3000/api/customer
+content-type: application/json
+
+{
+    "name": "Adik",
+    "phone": "01545545644",
+    "address": "rayghjerbagasfasf",
+    "date": "2018-04-26",
+    "accounts": []
+}
+###
+POST http://localhost:3000/api/withdraw/496002
+content-type: application/json
+
+{
+    "date": "5/6/2019",
+    "balance": "500",
+    "amount": "55",
+    "charge": "55"
+}
+###
+
+PUT http://localhost:3000/api/customer/15524
+content-type: application/json
+
+{
+    "name": "Huda Apon",
+    "phone": "01545545644",
+    "address": "rayghjerbagasfasf",
+    "acn": "155246",
+    "date": "2018-04-26"
+}
+###
+
+DELETE http://localhost:3000/api/customer/67508
+###
+POST http://localhost:3000/api/account
+content-type: application/json
+
+{
+    "name": "Adik",
+    "id": "12345",
+    "date": "2018-04-26",
+    "total": 100,
+    "min": 20
+}
+###
+###
+
+
+
+
+# Login test
+
+get http://localhost:3000/test
+###
+GET http://localhost:3000/logout
+###
+POST http://localhost:3000/login

@@ -1,0 +1,9 @@
+{
+    "env": "Testing",
+    "database": {
+        "uri": "",
+        "customer": "test-customer",
+        "deposit": "test-deposit",
+        "account": "test-account"
+    }
+}
