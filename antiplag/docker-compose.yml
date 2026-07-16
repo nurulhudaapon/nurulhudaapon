@@ -1,0 +1,26 @@
+# a docker compose with mysql and phpmyadmin
+services:
+  mysql:
+    image: mysql:latest
+    container_name: dev_mysql
+    restart: always
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - "13306:3306"
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "root"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: "dev_phpmyadmin"
+    restart: always
+    ports:
+      - 9090:80
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
