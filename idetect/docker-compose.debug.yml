@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  idetect:
+    image: idetect
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005,quiet=y
+    ports:
+      - 5051:5051
+      - 5005:5005
